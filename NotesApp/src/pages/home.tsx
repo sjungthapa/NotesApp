@@ -15,6 +15,10 @@ const Home = () => {
     navigate('/workNotes');
   };
 
+  const goToProfile = () => {
+    navigate('/profile');
+  }
+
   return (
     <div>
       <h1>Home Page</h1>
@@ -23,6 +27,7 @@ const Home = () => {
       <button onClick={goToPersonalNotes}>Personal Notes</button>
       <button onClick={goToSchoolNotes}>School Notes</button>
       <button onClick={goToWorkNotes}>Work Notes</button>
+      <button onClick={goToProfile}>Profile</button>
     </div>
   );
 };

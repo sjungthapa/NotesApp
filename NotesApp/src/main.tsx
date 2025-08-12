@@ -8,6 +8,7 @@ import SchoolNotes from './pages/schoolNotes'
 import WorkNotes from './pages/workNotes'
 import { AuthProvider } from './contextAPI/AuthContext'
 import Login from './pages/login'
+import Profile from './contextAPI/Profile'
 
 
 
@@ -23,6 +24,7 @@ ReactDOM.createRoot(rootElement!).render(
         <Route path="/schoolNotes" element={<SchoolNotes />} />
         <Route path="/workNotes" element={<WorkNotes />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
     </AuthProvider>

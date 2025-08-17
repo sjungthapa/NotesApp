@@ -8,7 +8,8 @@ import SchoolNotes from './pages/schoolNotes'
 import WorkNotes from './pages/workNotes'
 import { AuthProvider } from './contextAPI/AuthContext'
 import Login from './pages/login'
-import Profile from './contextAPI/Profile'
+import Profile from './contextAPI/Profile'  
+import './index.css'
 
 
 

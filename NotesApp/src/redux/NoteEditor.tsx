@@ -8,7 +8,7 @@ import { useAuth } from '../contextAPI/AuthContext';
 interface NoteEditorProps {
   existingNote?: Note;
   onSave?: () => void;
-  category: 'personal' | 'work' | 'school'; // ✅ make sure this is passed in
+  category: 'personal' | 'work' | 'school'; 
 }
 
 const NoteEditor: React.FC<NoteEditorProps> = ({ existingNote, onSave, category }) => {
@@ -26,7 +26,10 @@ const NoteEditor: React.FC<NoteEditorProps> = ({ existingNote, onSave, category 
 
   const handleSave = () => {
 
-    if (!user) return;
+     if (!user) {
+    alert('Log in first!');
+    return;
+     }
 
     if (existingNote) {
       dispatch(editNote({ ...existingNote, title, content }));

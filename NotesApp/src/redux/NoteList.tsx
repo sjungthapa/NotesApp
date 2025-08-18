@@ -7,7 +7,7 @@ import '../App.css';
 import { useAuth } from '../contextAPI/AuthContext';
 
 interface NotesListProps {
-  category: 'personal' | 'work' | 'school'; // ✅ Accept category as prop
+  category: 'personal' | 'work' | 'school'; 
 }
 
 const NotesList: React.FC<NotesListProps> = ({ category }) => {
@@ -16,7 +16,6 @@ const NotesList: React.FC<NotesListProps> = ({ category }) => {
   const { user } = useAuth();
   const [editingNote, setEditingNote] = useState<Note | null>(null);
 
-  // ✅ Only show notes from the given category
   const filteredNotes = notes.filter(
     note => note.category === category && note.userId === user?.id
   );
@@ -26,7 +25,7 @@ const NotesList: React.FC<NotesListProps> = ({ category }) => {
       <NoteEditor
         existingNote={editingNote || undefined}
         onSave={() => setEditingNote(null)}
-        category={category} // ✅ Pass category to editor
+        category={category}
       />
       <hr className="divider" />
       {filteredNotes.map(note => (

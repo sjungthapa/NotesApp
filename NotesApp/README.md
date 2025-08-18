@@ -1,69 +1,114 @@
-# React + TypeScript + Vite
+# Notes App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, full-featured notes application with category organization, user authentication, and persistent storage.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **User Authentication**: Secure login with session persistence
+- **Categorized Notes**: Personal, Work, and School categories
+- **CRUD Operations**: Create, read, update, and delete notes
+- **Responsive Design**: Works on all device sizes
+- **Persistent Storage**: Notes saved per user in localStorage
+- **Modern UI**: Clean interface with gradient backgrounds
 
-## Expanding the ESLint configuration
+## Technology Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend**: React 18 + TypeScript
+- **State Management**: Redux Toolkit
+- **Routing**: React Router v6
+- **Styling**: Tailwind CSS
+- **UI Components**: Custom component library
+- **Authentication**: Context API
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Installation
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone the repository:
+```bash
+git clone https://github.com/sjungthapa/NotesApp.git
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Install dependencies:
 ```
+npm install
+npm install react@^18.2.0 react-dom@^18.2.0
+npm install react-router-dom@^6.22.3
+npm install @reduxjs/toolkit@^2.2.0 react-redux@^9.1.0
+npm install tailwindcss@^3.4.0 postcss@^8.4.38 autoprefixer@^10.4.19
+npm install lucide-react@^0.375.0
+```
+3. Start the development server:
+```
+npm run dev
+```
+4. Open your browser at:
+```
+http://localhost:5173/
+```
+## Project Structure
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/
+│   │   ├── button.tsx
+│   │   ├── card.tsx
+│   │   └── input.tsx
+│   └── NoteEditor.tsx
+├── contextAPI/          # Authentication context
+│   ├── AuthContext.tsx
+│   └── Profile.tsx
+├── pages/               # Application views
+│   ├── home.tsx
+│   ├── personalNotes.tsx
+│   ├── workNotes.tsx
+│   ├── schoolNotes.tsx
+│   └── login.tsx
+├── redux/               # State management
+│   ├── NoteSlice.ts
+│   ├── NoteTypes.ts
+│   ├── NoteList.tsx
+│   ├── hook.ts
+│   └── store.tsx
+├── App.css              # Custom styles
+├── index.css            # Global styles
+└── main.tsx             # Application entry point
+```
+## Core Components
+### Authentication System
+1. AuthContext.tsx: Manages user authentication state
+
+2. login.tsx: Login form with validation
+
+3. Profile.tsx: User profile with logout functionality
+### State Management
+1. NoteSlice.ts: Redux slice for CRUD operations
+
+2. NoteTypes.ts: Type definitions for notes
+
+3. NoteList.tsx: Displays and manages notes
+
+### UI Components
+1. button.tsx: Customizable button with variants
+
+2. card.tsx: Flexible card component
+
+3. input.tsx: Styled input field with validation
+
+## Usage
+### Login Page:
+1. Enter your name and email
+
+2. Click "Login" to access the app
+
+### Home Screen:
+1. Choose a note category: Personal, Work, or School
+### Notes View:
+1. Add new notes using the editor
+
+2. Edit existing notes by clicking "Edit"
+
+3. Delete notes with the "Delete" button
+
+### Profile:
+1. View your account details
+
+2. Logout when finished
+

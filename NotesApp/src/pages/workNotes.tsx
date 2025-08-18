@@ -54,7 +54,7 @@ const WorkNotes = () => {
               </CardDescription>
             </CardHeader>
             <CardContent className="px-6 py-6 overflow-y-auto max-h-[700px]">
-              <NotesList />
+              <NotesList category="work" />
             </CardContent>
           </Card>
         </div>
